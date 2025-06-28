@@ -65,7 +65,7 @@ const MarsRover = () => {
   }, [selectedRover]);
   useEffect(() => {
     loadMarsRoverPhotos();
-  }, [selectedRover, selectedRover, sol, page]);
+  }, [selectedRover, selectedCamera, sol, page]);
 
   const handleRoverChange = (event) => {
     setSelectedRover(event.target.value);
@@ -73,12 +73,12 @@ const MarsRover = () => {
   };
 
   const handleCameraChange = (event) => {
-    setSelectedCamera(event.targe.value);
+    setSelectedCamera(event.target.value);
     setPage(1);
   };
 
   const handleSolChange = (event) => {
-    setSol(parseInt(event.targe.value));
+    setSol(parseInt(event.target.value));
     setPage(1);
   };
 

@@ -53,8 +53,10 @@
 
 .apod-explanation {
     text-align: left;
-    line-height: 1.6;
-    margin: 20px 0;
+    height: auto;
+    width: 75%;
+    line-height: 1.2;
+    margin: 20px auto;
     padding: 20px;
     background-color: #f5f5f5;
     border-radius: 8px;

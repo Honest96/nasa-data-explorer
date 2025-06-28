@@ -43,7 +43,11 @@ function NasaMedia() {
 
   useEffect(() => {
     loadMediaItems();
-  }, [searchQuery, mediaType, currentPage, yearStart, yearEnd]);
+  }, []);
+
+  useEffect(() => {
+    loadMediaItems();
+  }, [mediaType, currentPage, yearStart, yearEnd]);
 
   const loadMediaItems = async () => {
     setLoading(true);
@@ -55,12 +59,12 @@ function NasaMedia() {
         page: currentPage,
       };
 
-      if (yearStart) {
-        options.year_start = parseInt(yearStart);
-      }
-      if (yearEnd) {
-        options.year_end = parseInt(yearEnd);
-      }
+      // if (yearStart) {
+      //   options.year_start = parseInt(yearStart);
+      // }
+      // if (yearEnd) {
+      //   options.year_end = parseInt(yearEnd);
+      // }
 
       const data = await fetchNasaMedia(options);
       // setMediaType(data?.items || []);
@@ -81,9 +85,48 @@ function NasaMedia() {
     loadMediaItems();
   };
 
+  // const handleQuickSearch = async (query) => {
+  //   setSearchQuery(query);
+  //   setCurrentPage(1);
+  //   // setTimeout(() => loadMediaItems(), 0);
+  //   const data = await fetchNasaMedia({ query: query, ... });
+  // };
+
   const handleQuickSearch = (query) => {
+    //Update state to prepare for a quick search
     setSearchQuery(query);
     setCurrentPage(1);
+
+    //Immediately search with the new query
+    setLoading(true);
+    setError(null);
+
+    const options = {
+      query: query,
+      media_type: mediaType,
+      page: 1,
+    };
+
+    // if (yearStart) {
+    //   options.year_start = parseInt(yearStart);
+    // }
+    // if (yearEnd) {
+    //   options.year_end = parseInt(yearEnd);
+    // }
+
+    fetchNasaMedia(options)
+      .then((data) => {
+        setMediaItems(data?.items || []);
+        setTotalHits(data?.total_hits || 0);
+      })
+      .catch((error) => {
+        console.error("Failed to load NASA Media:", error);
+        setError(error.message);
+        setMediaItems([]);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handlePageChange = (newPage) => {
@@ -176,28 +219,26 @@ function NasaMedia() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search NASA's media library (searches titles, descriptions, and keywords)..."
+              placeholder="Search NASA's Media Library (searches titles, descriptions and keywords)..."
               className="search-input"
             />
             <button type="submit" className="search-button">
               Search
             </button>
-          </div>
+            <div className="filters-row">
+              <select
+                value={mediaType}
+                onChange={(e) => setMediaType(e.target.value)}
+                className="filter-select"
+              >
+                {mediaTypes.map((type) => (
+                  <option key={type.value} value={type.value}>
+                    {type.label}
+                  </option>
+                ))}
+              </select>
 
-          <div className="filters-row">
-            <select
-              value={mediaType}
-              onChange={(e) => setMediaType(e.target.value)}
-              className="filter-select"
-            >
-              {mediaTypes.map((type) => (
-                <option key={type.value} value={type.value}>
-                  {type.label}
-                </option>
-              ))}
-            </select>
-
-            <input
+              {/* <input
               type="number"
               value={yearStart}
               onChange={(e) => setYearStart(e.target.value)}
@@ -215,7 +256,8 @@ function NasaMedia() {
               min="1900"
               max={new Date().getFullYear()}
               className="year-input"
-            />
+            /> */}
+            </div>
           </div>
         </form>
 
@@ -237,8 +279,8 @@ function NasaMedia() {
 
       <div className="results-info">
         <p>
-          Found {totalHits?.toLocaleString()} results for "{searchQuery}"
-          {mediaItems.length > 0 && ` (Showing page ${currentPage})`}
+          Results for "{searchQuery}"
+          {mediaItems.length > 0 && ` (Showing Page ${currentPage})`}
         </p>
       </div>
 
