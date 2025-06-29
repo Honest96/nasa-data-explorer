@@ -85,3 +85,5 @@ Search Query: (e.g., “Supernova”, “Earth”)
 Media Type: image, video, audio
 
 Here you can search using a keyword, filter the results by mages, videos or audio, click a popular search tag and scroll through pages of results.
+
+# Deploy to Vercel
