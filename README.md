@@ -30,10 +30,10 @@ In the terminal: git clone <your repository-url>
 cd nasa-data-explorer
 
 To install backend dependecies: cd backend
-npm install
+`npm install`
 
 To install forntend dependecies: cd ../frontend
-npm install
+`npm install`
 
 # Step 2: Configure Environment Variables
 
@@ -47,11 +47,11 @@ NODE_ENV=development
 You need to simultaneously run the backend and frontend servers.
 Terminal 1: Start the Backend:
 cd backend
-npm run dev
+`npm run dev`
 
 Terminal 2: Start the Frontend:
 cd frontend
-npm start
+`npm start`
 ** Note: The app should run on http://localhost:3000 **
 
 # How To Use The Application
