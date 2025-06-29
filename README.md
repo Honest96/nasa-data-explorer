@@ -1,16 +1,17 @@
-**_ NASA Data Explorer _**
+# NASA Data Explorer
 
 A full-stack web application that connects to NASA's APIs to provide an interactive platform for exploring space imagery and data. Users can browse NASA's Astronomy Picture of the Day (APOD), explore Mars rover photography, and search through NASA's extensive media library.
 
-**_Key Features_**
+# Key Features
 
 1. Real-time integration with NASA's APIs.
 2. Three main features: APOD, Mars Rover Explorer, and Media Library.
 3. Image/video grids, modal details, and filtering/search tools.
 4. Mobile-responsive layout with themed design.
 
-**_How to Setup the Application_**
-**_Prerequisites:_**
+# How to Setup the Application
+
+## Prerequisites:
 
 1. Node.js (version 18 or version 20 recommended) Download: https://nodejs.org/
 2. npm (comes with Node.js)
@@ -19,7 +20,8 @@ A full-stack web application that connects to NASA's APIs to provide an interact
 
 **_ Avoid Node.js v23 (compatibility issues) - use LTS versions only _**
 
-**_ Step 1: Clone the Repository _**
+# Step 1: Clone the Repository
+
 In the terminal: git clone <your repository-url>
 cd nasa-data-explorer
 
@@ -29,13 +31,15 @@ npm install
 To install forntend dependecies: cd ../frontend
 npm install
 
-**_ Step 2: Configure Environment Variables _**
+# Step 2: Configure Environment Variables
+
 Create a .env file in the backend directory and add the following configuration:
 NASA_API_KEY=your_actual_nasa_api_key (from https://api.nasa.gov/)
 PORT=5001
 NODE_ENV=development
 
-**_ How To Start The Application _**
+# How To Start The Application
+
 You need to simultaneously run the backend and frontend servers.
 Terminal 1: Start the Backend:
 cd backend
@@ -46,8 +50,10 @@ cd frontend
 npm start
 ** Note: The app should run on http://localhost:3000 **
 
-**_ How To Use The Application _**
-**_ Astronomy Picture of the Day (APOD) _**
+# How To Use The Application
+
+## Astronomy Picture of the Day (APOD)
+
 Explore NASA’s daily photo/video with scientific explanations.
 
 Features:
@@ -57,7 +63,8 @@ Features:
 3. Read full descriptions with high-resolution imagery.
 4. Play and listen to full descriptions of the APOD.
 
-**_ Mars Rover Explorer _**
+# Mars Rover Explorer
+
 View and Filter through actual images taken on Mars by NASA’s rovers.
 
 Filters:
@@ -68,7 +75,8 @@ Sol: A Martian day number (up to 3000)
 
 Here you can select different tovers, choose different cameras, try out different Sol numbers and scroll through pages of results.
 
-**_ NASA's Image & Video Library _**
+## NASA's Image & Video Library
+
 Search through thousands of media libraries (images, videos & audio).
 
 Filters:
