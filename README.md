@@ -100,7 +100,7 @@ This project is deployed on:
 - Build Command on Terminal: `npm run build`
 - Output Directory: `build`
 
-## Backend Deploymwnt:
+## Backend Deployment:
 
 - The backend (Node + Express API) is deployed separately (on Vercel).
 - Ensure API endpoints in the frontend point to the production backend.
