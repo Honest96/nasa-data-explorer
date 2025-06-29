@@ -92,7 +92,7 @@ Here you can search using a keyword, filter the results by mages, videos or audi
 
 # Deploy to Vercel
 
-This project is deployed on:
+This project is deployed on Vercel (https://vercel.com/)
 
 ## Frontend Deployment:
 
