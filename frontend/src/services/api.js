@@ -1,5 +1,4 @@
 const API_BASE_URL = "/api";
-// const axios = require("axios");
 
 //Fetch Astronomy Picture of the Day from backend
 export async function fetchApodData(date = null) {
@@ -107,7 +106,7 @@ export async function fetchRoverInfo(rover = "curiosity") {
   }
 }
 
-// Fetch NASA Images & Videos from backend
+//Fetch NASA Images & Videos from backend
 export async function fetchNasaMedia(options = {}) {
   let url;
   let response;
@@ -115,7 +114,7 @@ export async function fetchNasaMedia(options = {}) {
 
   try {
     const {
-      query = "astronaut",
+      query = "star cluster",
       media_type = "image,video",
       page = 1,
       year_start,

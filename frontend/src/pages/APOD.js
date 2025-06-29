@@ -72,7 +72,7 @@ function APOD() {
       <DatePicker
         value={selectDate}
         onChange={handleChangeDate}
-        label="Select Date: "
+        label="Select Date:"
         id="apod-date"
         className="apod-date-picker"
       />

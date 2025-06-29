@@ -5,11 +5,11 @@ const {
   fetchNasaMediaAssets,
 } = require("../services/nasaMediaApi");
 
-//handle GET requests to /api/nasa-media
+//Handle GET requests to /api/nasa-media
 async function getNasaMedia(req, res) {
   try {
     const {
-      q = "astronaut",
+      q = "star cluster",
       media_type = "image, video",
       page = 1,
       year_start,
@@ -26,6 +26,7 @@ async function getNasaMedia(req, res) {
     };
 
     const mediaData = await fetchNasaMedia(options);
+
     console.log("NASA Media Library fetched successfully:");
 
     res.status(200).json({
@@ -55,7 +56,9 @@ async function getNasaMediaDetails(req, res) {
       });
     }
     console.log(`Fetching Media Details for NASA ID: ${nasa_id}`);
+
     const mediaDetails = await fetchNasaMediaDetails(nasa_id);
+
     console.log("NASA Media Details fetched successfully:");
 
     res.status(200).json({
@@ -85,7 +88,9 @@ async function getNasaMediaAssets(req, res) {
       });
     }
     console.log(`Fetching Media Assets for NASA ID: ${nasa_id}`);
+
     const mediaAssets = await fetchNasaMediaAssets(nasa_id);
+
     console.log("NASA Media Assets fetched successfully:");
 
     res.status(200).json({

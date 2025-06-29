@@ -30,6 +30,7 @@ async function getMarsRoverPhotos(req, res) {
     }
 
     const roverData = await fetchMarsRoverPhotos(options);
+
     console.log("Mars Rover photos fetched successfully:");
 
     res.status(200).json({
@@ -52,8 +53,11 @@ async function getMarsRoverPhotos(req, res) {
 async function getRoverInfo(req, res) {
   try {
     const { rover = "curiosity" } = req.query;
+
     console.log(`Fetching Info for rover: ${rover}`);
+
     const roverInfo = await fetchRoverInfo(rover);
+
     console.log("Mars Rover Info fetched successfully:");
 
     res.status(200).json({

@@ -1,9 +1,17 @@
 .apod-container {
     background: rgba(0, 0, 0);
+    /* background-image: url('../../../public/images/space-background.jpg'); */
     max-width: 100vw;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+}
+
+.apod-container h1 {
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 30px;
+    font-size: 2.5em; 
 }
 
 .date-picker {
@@ -13,6 +21,7 @@
 .date-picker label {
     margin-right: 10px;
     font-weight: bold;
+    color: #fff;
 }
 
 .date-picker input {
@@ -23,22 +32,27 @@
 
 .apod-content {
     margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .apod-content h2 {
-    color: #333;
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .apod-date {
-    color: #666;
+    color: #fff;
     font-style: italic;
     margin-bottom: 20px;
 }
 
 .apod-image {
-    max-width: 100%;
-    height: auto;
+    max-width: 100vw;
+    height: 100vh;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     margin: 20px 0;

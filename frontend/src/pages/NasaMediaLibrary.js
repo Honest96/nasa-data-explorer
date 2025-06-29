@@ -4,13 +4,14 @@ import {
   fetchNasaMediaDetails,
   fetchNasaMediaAssets,
 } from "../services/api";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 //NASA Media Library Component to display NASA's Image & Video Library
 function NasaMedia() {
   const [mediaItems, setMediaItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("astronaut");
+  const [searchQuery, setSearchQuery] = useState("star cluster");
   const [mediaType, setMediaType] = useState("image, video");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalHits, setTotalHits] = useState(0);
@@ -27,7 +28,7 @@ function NasaMedia() {
   ];
 
   const popularSearches = [
-    "astronaut",
+    "star cluster",
     "mars",
     "earth",
     "moon",
@@ -59,15 +60,7 @@ function NasaMedia() {
         page: currentPage,
       };
 
-      // if (yearStart) {
-      //   options.year_start = parseInt(yearStart);
-      // }
-      // if (yearEnd) {
-      //   options.year_end = parseInt(yearEnd);
-      // }
-
       const data = await fetchNasaMedia(options);
-      // setMediaType(data?.items || []);
       setMediaItems(data?.items || []);
       setTotalHits(data?.totalHits || 0);
     } catch (error) {
@@ -85,19 +78,10 @@ function NasaMedia() {
     loadMediaItems();
   };
 
-  // const handleQuickSearch = async (query) => {
-  //   setSearchQuery(query);
-  //   setCurrentPage(1);
-  //   // setTimeout(() => loadMediaItems(), 0);
-  //   const data = await fetchNasaMedia({ query: query, ... });
-  // };
-
   const handleQuickSearch = (query) => {
-    //Update state to prepare for a quick search
     setSearchQuery(query);
     setCurrentPage(1);
 
-    //Immediately search with the new query
     setLoading(true);
     setError(null);
 
@@ -106,13 +90,6 @@ function NasaMedia() {
       media_type: mediaType,
       page: 1,
     };
-
-    // if (yearStart) {
-    //   options.year_start = parseInt(yearStart);
-    // }
-    // if (yearEnd) {
-    //   options.year_end = parseInt(yearEnd);
-    // }
 
     fetchNasaMedia(options)
       .then((data) => {
@@ -204,7 +181,8 @@ function NasaMedia() {
   if (loading && mediaItems.length === 0) {
     return (
       <div className="nasa-media-container">
-        <div className="loading-spinner">Loading NASA Media Library...</div>
+        <h1>NASA Image & Video Library</h1>
+        <LoadingSpinner message="Loading NASA Media Library..." size="large" />
       </div>
     );
   }
@@ -237,26 +215,6 @@ function NasaMedia() {
                   </option>
                 ))}
               </select>
-
-              {/* <input
-              type="number"
-              value={yearStart}
-              onChange={(e) => setYearStart(e.target.value)}
-              placeholder="Start Year"
-              min="1900"
-              max={new Date().getFullYear()}
-              className="year-input"
-            />
-
-            <input
-              type="number"
-              value={yearEnd}
-              onChange={(e) => setYearEnd(e.target.value)}
-              placeholder="End Year"
-              min="1900"
-              max={new Date().getFullYear()}
-              className="year-input"
-            /> */}
             </div>
           </div>
         </form>
@@ -319,7 +277,7 @@ function NasaMedia() {
 
           <button
             onClick={() => handlePageChange(currentPage + 1)}
-            disabled={mediaItems.length < 100} // NASA API returns max 100 per page
+            disabled={mediaItems.length < 100}
             className="pagination-button"
           >
             Next

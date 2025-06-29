@@ -41,7 +41,6 @@ async function fetchMarsRoverPhotos(options = {}) {
 
     console.log("Response status:", response.status);
     console.log("Mars Rover Photos fetched successfully.");
-    // console.log('Number of photos:', response.data.photos.length);
 
     if (!response.data) {
       throw new Error("No data received from Mars Rover API");
@@ -52,7 +51,6 @@ async function fetchMarsRoverPhotos(options = {}) {
     console.log("Mars Rover Photos fetched successfully");
     console.log("Number of photos:", photos.length);
 
-    // If no photos found, suggest alternative sols
     if (photos.length === 0) {
       console.log("No photos found for the current criteria");
     }
@@ -96,20 +94,15 @@ async function fetchRoverInfo(rover = "curiosity") {
     let apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}?api_key=${apiKey}`;
 
     console.log("Fetching Rover Info...");
-    // const response = await fetch(apiUrl);
-    const response = await axios.get(apiUrl);
 
+    const response = await axios.get(apiUrl);
     const roverData = response.data?.rover;
     if (!roverData) {
       throw new Error("No rover info received from NASA response");
     }
-    // if (!response.ok) {
-    //   throw new Error(
-    //     `NASA API error: ${response.status} ${response.statusText}`
-    //   );
-    // }
 
     console.log("Rover Info fetched successfully.");
+
     return response.data.rover;
   } catch (error) {
     console.error("Error fetching Rover Info:", error);

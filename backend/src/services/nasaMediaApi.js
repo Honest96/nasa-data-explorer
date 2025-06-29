@@ -4,7 +4,7 @@ const axios = require("axios");
 async function fetchNasaMedia(options = {}) {
   try {
     const {
-      query = "astronaut",
+      query = "star cluster",
       media_type = "image, video",
       page = 1,
       year_start = null,
@@ -44,7 +44,6 @@ async function fetchNasaMedia(options = {}) {
       const data = item.data?.[0] || {};
       const links = item.links || {};
       const previewLink = links[0]?.href || null;
-      // const previewUrl = previewLink?.href || null;
       const previewUrl = links.length > 0 ? links[0].href : null;
 
       return {
@@ -96,11 +95,6 @@ async function fetchNasaMediaDetails(nasa_id) {
   try {
     const apiUrl = `https://images-api.nasa.gov/search?nasa_id=${nasa_id}`;
     const response = await axios.get(apiUrl);
-
-    // const mediaData = response.data?.rover;
-    // if (!mediaData) {
-    //   throw new Error("No Media info received from NASA response");
-    // }
     if (response.data?.collection?.item?.length > 0) {
       const item = response.data.collection.items[0];
       console.log("Media Details fetched successfully.");

@@ -1,5 +1,4 @@
 import React from "react";
-// import './styles/App.css';
 import "./App.css";
 import "./styles/components/DatePicker.css";
 import "./styles/components/ErrorMessage.css";
@@ -29,32 +28,34 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <nav className="navigation">
-        <button
-          className={
-            currentPage === "apod" ? "nav-button active" : "nav-button"
-          }
-          onClick={() => setCurrentPage("apod")}
-        >
-          Astronomy Picture of the Day
-        </button>
-        <button
-          className={
-            currentPage === "mars-rover" ? "nav-button active" : "nav-button"
-          }
-          onClick={() => setCurrentPage("mars-rover")}
-        >
-          Mars Rover Photos
-        </button>
-        <button
-          className={
-            currentPage === "nasa-media" ? "nav-button active" : "nav-button"
-          }
-          onClick={() => setCurrentPage("nasa-media")}
-        >
-          NASA Media Library
-        </button>
-      </nav>
+      <div className="App-selector">
+        <nav className="navigation">
+          <button
+            className={
+              currentPage === "apod" ? "nav-button active" : "nav-button"
+            }
+            onClick={() => setCurrentPage("apod")}
+          >
+            Astronomy Picture of the Day
+          </button>
+          <button
+            className={
+              currentPage === "mars-rover" ? "nav-button active" : "nav-button"
+            }
+            onClick={() => setCurrentPage("mars-rover")}
+          >
+            Mars Rover Photos
+          </button>
+          <button
+            className={
+              currentPage === "nasa-media" ? "nav-button active" : "nav-button"
+            }
+            onClick={() => setCurrentPage("nasa-media")}
+          >
+            NASA Media Library
+          </button>
+        </nav>
+      </div>
       <main className="App-main">{renderPage()}</main>
     </div>
   );

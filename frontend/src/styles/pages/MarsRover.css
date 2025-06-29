@@ -1,5 +1,6 @@
 .mars-rover-container {
-    background: rgba(0, 0, 0);
+    background-color: #000;
+    /* background-image: url('../../../public/images/space-background.jpg'); */
     max-width: 100vw;
     margin: 0 auto;
     padding: 20px;
@@ -12,8 +13,7 @@
     font-size: 2.5em;
 }
 
-.rover-info {
-    /* background: rgba(0, 0, 0); */
+.rover-info, .controls {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -21,7 +21,7 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.rover-info h2 {
+.rover-info h2, h3 {
     color: #d4af37;
     margin-bottom: 15px;
 }
@@ -32,7 +32,6 @@
 }
 
 .controls {
-    /* background: rgba(0, 0, 0); */
     display: flex;
     gap: 90px;
     margin-bottom: 30px;
@@ -129,12 +128,13 @@
 .no-photos {
     text-align: center;
     padding: 50px;
-    color: #ccc;
+    color: #fff;
+    margin-bottom: 15px;
     font-size: 1.1em;
 }
 
-.photos-section h3 {
-    color: #d4af37;
+.photos-section h4 {
+    color: #fff;
     margin-bottom: 20px;
     text-align: center;
 }

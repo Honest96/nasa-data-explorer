@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/pages/MarsRover.css";
 import { fetchMarsRoverPhotos, fetchRoverInfo } from "../services/api";
-// import LoadingSpinner from "../components/LoadingSpinner";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 //Mars Rover Conmponent to display NASA's Mars Rover Photos
 const MarsRover = () => {
@@ -82,10 +82,6 @@ const MarsRover = () => {
     setPage(1);
   };
 
-  //   const handlePageChange = (event) => {
-  //     setPage(newPage);
-  //   };
-
   const handlePreviousPage = () => {
     if (page > 1) {
       setPage(page - 1);
@@ -101,7 +97,8 @@ const MarsRover = () => {
   if (loading && (!photos || photos.length === 0)) {
     return (
       <div className="mars-rover-container">
-        <div className="loading-spinner">Loading Mars Rover Photos...</div>
+        <h1>Mars Rover Photos</h1>
+        <LoadingSpinner message="Loading Mars Rover Photos..." size="large" />
       </div>
     );
   }
@@ -112,7 +109,7 @@ const MarsRover = () => {
 
       {roverInfo && (
         <div className="rover-info">
-          <h2>{roverInfo.name} Rover</h2>
+          <h3>{roverInfo.name} Rover</h3>
           <p>
             <strong>Status:</strong> {roverInfo.status}
           </p>
@@ -193,10 +190,10 @@ const MarsRover = () => {
       )}
 
       {photos.length > 0 && (
-        <div className="photo-section">
-          <h3>
+        <div className="photos-section">
+          <h4>
             Photos from Sol {sol} ({photos.length} photos)
-          </h3>
+          </h4>
           <br />
 
           <div className="photos-grid">
@@ -226,11 +223,7 @@ const MarsRover = () => {
           </div>
 
           <div className="pagination">
-            <button
-              onClick={handlePreviousPage}
-              //   disabled={photos.length < 25}
-              disabled={page <= 1}
-            >
+            <button onClick={handlePreviousPage} disabled={page <= 1}>
               Previous
             </button>
             <span>Page {page}</span>
