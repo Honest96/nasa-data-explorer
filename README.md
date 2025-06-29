@@ -2,6 +2,10 @@
 
 A full-stack web application that connects to NASA's APIs to provide an interactive platform for exploring space imagery and data. Users can browse NASA's Astronomy Picture of the Day (APOD), explore Mars rover photography, and search through NASA's extensive media library.
 
+## Live Demo
+
+Access the live deployed application here: [nasa-data-explorer-webapp-honest-ndlovus-projects.vercel.app]
+
 # Key Features
 
 1. Real-time integration with NASA's APIs.
@@ -87,3 +91,16 @@ Media Type: image, video, audio
 Here you can search using a keyword, filter the results by mages, videos or audio, click a popular search tag and scroll through pages of results.
 
 # Deploy to Vercel
+
+This project is deployed on:
+
+## Frontend Deployment:
+
+- The frontend (React app) is deployed directly from the `/frontend` folder.
+- Build Command on Terminal: `npm run build`
+- Output Directory: `build`
+
+## Backend Deploymwnt:
+
+- The backend (Node + Express API) is deployed separately (on Vercel).
+- Ensure API endpoints in the frontend point to the production backend.
