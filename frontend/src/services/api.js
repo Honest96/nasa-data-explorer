@@ -1,6 +1,6 @@
 // const API_BASE_URL = "/api";
 console.log("Base URL:", process.env.REACT_APP_API_BASE_URL);
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "DEMO_KEY";
 
 //Fetch Astronomy Picture of the Day from backend
 export async function fetchApodData(date = null) {
