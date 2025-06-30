@@ -1,5 +1,6 @@
 // const API_BASE_URL = "/api";
-const API_BASE_URL = "https://nasa-data-explorer-ti2h.onrender.com/api";
+console.log("Base URL:", process.env.REACT_APP_API_BASE_URL);
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 //Fetch Astronomy Picture of the Day from backend
 export async function fetchApodData(date = null) {
