@@ -4,7 +4,7 @@ A full-stack web application that connects to NASA's APIs to provide an interact
 
 ## Live Demo
 
-Access the live deployed application here: [nasa-data-explorer-webapp-honest-ndlovus-projects.vercel.app]
+Access the live deployed application here: [https://stellar-alfajores-174605.netlify.app]
 
 # Key Features
 
@@ -74,7 +74,7 @@ View and Filter through actual images taken on Mars by NASA’s rovers.
 Filters:
 
 Rover: Curiosity, Perseverance, Spirit, Opportunity
-Camera: FHAZ, RHAZ, NAVCAM, MAST, etc.
+Camera: FHAZ, RHAZ, NAVCAM, MAST, and more...
 Sol: A Martian day number (up to 3000)
 
 Here you can select different tovers, choose different cameras, try out different Sol numbers and scroll through pages of results.
@@ -90,9 +90,9 @@ Media Type: image, video, audio
 
 Here you can search using a keyword, filter the results by mages, videos or audio, click a popular search tag and scroll through pages of results.
 
-# Deploy to Vercel
+# Deploy to Netlify
 
-This project is deployed on Vercel (https://vercel.com/)
+This project is deployed on Netlify (https://netlify.com/)
 
 ## Frontend Deployment:
 
@@ -102,5 +102,5 @@ This project is deployed on Vercel (https://vercel.com/)
 
 ## Backend Deployment:
 
-- The backend (Node + Express API) is deployed separately (on Vercel).
+- The backend (Node + Express API) is deployed separately (on Netlify and Render).
 - Ensure API endpoints in the frontend point to the production backend.
